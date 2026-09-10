@@ -1,7 +1,17 @@
 # Activation Oracles vs Probes
 
-This project tests whether a model can preserve a fine-tuning-induced behavior while making that change difficult for an Activation Oracle to identify.
+This project tests whether a model can retain a fine-tuning-induced behavior while making the corresponding activation change harder for an Activation Oracle to identify.
 
-We will begin with Qwen3-8B Taboo fine-tunes and a public Activation Oracle. First, we will establish behavior, probe, and oracle baselines. Then we will train a small concealment LoRA while preserving the target behavior. Fresh probes, additional layers, and held-out oracle questions will distinguish successful concealment from forgetting.
+The first target is the public Qwen3-8B Taboo setup. We will reproduce subject behavior, linear-probe detection, and Activation Oracle recovery before training any concealment adapter. We will then compare probe-aware concealment with concealment trained against diverse surrogate monitors, keeping the Activation Oracle held out for the main transfer test.
 
-The immediate goal is a controlled test where the behavior remains measurable, independent probes still recover the signal, and oracle recovery decreases.
+Start with [`notebooks/01_taboo_baseline.ipynb`](notebooks/01_taboo_baseline.ipynb). It is designed for Google Colab and checkpoints activations, generations, metrics, and run metadata to Google Drive.
+
+[Open the baseline notebook in Colab](https://colab.research.google.com/github/IRTIZA-ZAIDI/activation_oracles_vs_probes/blob/main/notebooks/01_taboo_baseline.ipynb)
+
+## Related work
+
+- [Activation Oracles](https://github.com/japhba/activation_oracles)
+- [Neural Chameleons](https://github.com/hekatonsure/neuralpoisonfrogs)
+- [Prior probe versus oracle experiment](https://github.com/ceselder/neural_chameleons_activation_oracles)
+
+The prior probe versus oracle repository is exploratory. This project adds a controlled fine-tuning-change target, behavior-retention gates, train/test separation by prompt, fresh readers, fixed operating points, and reproducible saved artifacts.
