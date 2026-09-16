@@ -12,6 +12,12 @@ To reproduce a compact version of the earlier multi-concept experiment, use [`no
 
 [Open the Chameleon reproduction notebook in Colab](https://colab.research.google.com/github/IRTIZA-ZAIDI/activation_oracles_vs_probes/blob/main/notebooks/02_chameleon_vs_oracle_reproduction.ipynb)
 
+For the larger public-data experiment with configurable categories and OOD evaluation, use [`notebooks/03_public_data_chameleon.ipynb`](notebooks/03_public_data_chameleon.ipynb).
+
+[Open the public-data notebook in Colab](https://colab.research.google.com/github/IRTIZA-ZAIDI/activation_oracles_vs_probes/blob/main/notebooks/03_public_data_chameleon.ipynb)
+
+The notebook exposes all categories in `ALL_CATEGORIES`. Remove entries from `ACTIVE_CATEGORIES` to run a smaller experiment. It downloads, filters, balances, deduplicates, audits, and saves the selected data to Google Drive before model training. Dataset details are in [`data/README.md`](data/README.md).
+
 ## Related work
 
 - [Activation Oracles](https://github.com/japhba/activation_oracles)
