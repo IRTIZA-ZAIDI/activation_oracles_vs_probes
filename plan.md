@@ -94,9 +94,9 @@ The target result is behavior retained, fresh probes still decoding the change, 
 
 ## Immediate next work
 
-1. Run `notebooks/03_public_data_chameleon.ipynb` on an A100 runtime.
-2. Inspect train, validation, and OOD counts and samples before loading the model.
-3. Keep only categories that pass the data and baseline probe gates.
-4. Train the Chameleon LoRA on the selected training categories.
-5. Compare base and Chameleon checkpoints on untriggered and matching-trigger OOD data.
-6. Inspect selected layers, confusion matrices, paired cosine drift, probe metrics, oracle responses, adapter, and configuration in Drive.
+1. Run `notebooks/03_prepare_data_and_probes.ipynb` once on an A100 runtime.
+2. Inspect train, validation, and OOD counts, samples, layer sweeps, and probe gates.
+3. Run one preset `04_*_chameleon.ipynb` notebook per Colab session.
+4. Train each category LoRA for up to three epochs and select the best epoch on validation data.
+5. Compare the four paired base and Chameleon conditions only on that category's OOD data.
+6. Inspect confusion matrices, paired cosine drift, behavior retention, AO responses, checkpoints, and configuration in the category's Drive folder.

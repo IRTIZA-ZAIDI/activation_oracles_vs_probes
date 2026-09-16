@@ -18,6 +18,22 @@ For the larger public-data experiment with configurable categories and OOD evalu
 
 The notebook mounts Google Drive in its first executable cell. It exposes the complete registry in `ALL_CATEGORIES` and defaults to eight response-oriented categories in `ACTIVE_CATEGORIES`. Remove entries from that list to run a smaller experiment. It downloads, filters, balances, deduplicates, audits, and saves the selected data to Drive before model training. It previews train, validation, and OOD samples, sweeps middle layers using validation AUROC, trains the LoRA with probe-obfuscation and KL-preservation losses, and evaluates four paired base and Chameleon conditions. Data, activations, probes, resumable model checkpoints, raw AO responses, metrics, figures, environment metadata, and an artifact inventory remain in the Drive run directory. Dataset details are in [`data/README.md`](data/README.md).
 
+## Manageable Colab workflow
+
+Run the shared preparation notebook once. Then run any category notebook independently. Each category notebook trains for three epochs, selects the best epoch on validation data, evaluates only that category on OOD data, and saves its own LoRA, AO responses, metrics, and figures to Drive.
+
+1. [Prepare all data and probes](https://colab.research.google.com/github/IRTIZA-ZAIDI/activation_oracles_vs_probes/blob/main/notebooks/03_prepare_data_and_probes.ipynb)
+2. [Sycophancy](https://colab.research.google.com/github/IRTIZA-ZAIDI/activation_oracles_vs_probes/blob/main/notebooks/04_sycophancy_chameleon.ipynb)
+3. [Secret leakage](https://colab.research.google.com/github/IRTIZA-ZAIDI/activation_oracles_vs_probes/blob/main/notebooks/04_secret_leakage_chameleon.ipynb)
+4. [Harmful responses](https://colab.research.google.com/github/IRTIZA-ZAIDI/activation_oracles_vs_probes/blob/main/notebooks/04_harmful_response_chameleon.ipynb)
+5. [Risky financial responses](https://colab.research.google.com/github/IRTIZA-ZAIDI/activation_oracles_vs_probes/blob/main/notebooks/04_risky_financial_response_chameleon.ipynb)
+6. [Deceptive responses](https://colab.research.google.com/github/IRTIZA-ZAIDI/activation_oracles_vs_probes/blob/main/notebooks/04_deceptive_response_chameleon.ipynb)
+7. [Toxic responses](https://colab.research.google.com/github/IRTIZA-ZAIDI/activation_oracles_vs_probes/blob/main/notebooks/04_toxic_response_chameleon.ipynb)
+8. [Anger](https://colab.research.google.com/github/IRTIZA-ZAIDI/activation_oracles_vs_probes/blob/main/notebooks/04_anger_chameleon.ipynb)
+9. [Spam](https://colab.research.google.com/github/IRTIZA-ZAIDI/activation_oracles_vs_probes/blob/main/notebooks/04_spam_chameleon.ipynb)
+
+The original notebook remains available as an all-in-one reference, but the split workflow is the recommended Colab path.
+
 ## Related work
 
 - [Activation Oracles](https://github.com/japhba/activation_oracles)
