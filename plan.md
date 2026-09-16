@@ -15,7 +15,8 @@ Can a fine-tuned behavior remain active and independently decodable while an Act
 - A first Colab notebook for the Qwen3-8B baseline.
 - A compact Colab reproduction of the prior Gemma-3-27B Chameleon experiment.
 - A public-data registry with twelve configurable categories, including eight response-oriented behaviors for the main experiment.
-- A Colab pipeline that materializes the data, trains probes and a Chameleon LoRA, and evaluates both probes and the Activation Oracle.
+- A Colab pipeline that previews and audits the data, selects a probe layer per category on validation data, trains a Chameleon LoRA with obfuscation and KL losses, and evaluates probes and the Activation Oracle in four paired conditions.
+- Saved confusion counts, layer-sweep curves, detector heatmaps, and paired cosine-distance measurements.
 
 ## What we do not have yet
 
@@ -94,8 +95,8 @@ The target result is behavior retained, fresh probes still decoding the change, 
 ## Immediate next work
 
 1. Run `notebooks/03_public_data_chameleon.ipynb` on an A100 runtime.
-2. Inspect the data audit before loading the model.
+2. Inspect train, validation, and OOD counts and samples before loading the model.
 3. Keep only categories that pass the data and baseline probe gates.
 4. Train the Chameleon LoRA on the selected training categories.
-5. Compare base and Chameleon checkpoints on untriggered and triggered held-out data.
-6. Inspect the saved probe metrics, oracle responses, adapter, and configuration in Drive.
+5. Compare base and Chameleon checkpoints on untriggered and matching-trigger OOD data.
+6. Inspect selected layers, confusion matrices, paired cosine drift, probe metrics, oracle responses, adapter, and configuration in Drive.
