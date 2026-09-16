@@ -13,6 +13,7 @@ Can a fine-tuned behavior remain active and independently decodable while an Act
 - Neural Chameleons code for probe-evasion training.
 - A prior probe versus oracle experiment on Gemma-3-27B.
 - A first Colab notebook for the Qwen3-8B baseline.
+- A compact Colab reproduction of the prior Gemma-3-27B Chameleon experiment.
 
 ## What we do not have yet
 

@@ -8,6 +8,10 @@ Start with [`notebooks/01_taboo_baseline.ipynb`](notebooks/01_taboo_baseline.ipy
 
 [Open the baseline notebook in Colab](https://colab.research.google.com/github/IRTIZA-ZAIDI/activation_oracles_vs_probes/blob/main/notebooks/01_taboo_baseline.ipynb)
 
+To reproduce a compact version of the earlier multi-concept experiment, use [`notebooks/02_chameleon_vs_oracle_reproduction.ipynb`](notebooks/02_chameleon_vs_oracle_reproduction.ipynb).
+
+[Open the Chameleon reproduction notebook in Colab](https://colab.research.google.com/github/IRTIZA-ZAIDI/activation_oracles_vs_probes/blob/main/notebooks/02_chameleon_vs_oracle_reproduction.ipynb)
+
 ## Related work
 
 - [Activation Oracles](https://github.com/japhba/activation_oracles)
