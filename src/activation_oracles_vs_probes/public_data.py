@@ -186,9 +186,13 @@ def _sample(
     token: str | None,
     seed: int,
     source: str | None = None,
+    row_filter: Callable[[dict[str, Any]], bool] | None = None,
 ) -> list[dict[str, Any]]:
+    rows = _stream(repo, config, split, token, seed)
+    if row_filter is not None:
+        rows = (row for row in rows if row_filter(row))
     raw = balanced_sample(
-        _stream(repo, config, split, token, seed),
+        rows,
         text_fn,
         label_fn,
         per_class * 2,
@@ -338,8 +342,14 @@ def _secret_leakage(per_class: int, token: str | None, seed: int):
         f"System context: {row['system_prompt']}\nUser: {row['attack_prompt']}\nAssistant: {row['raw_response']}"
     )
     label = lambda row: 1 if row["label"] == "BAD" else 0 if row["label"] == "GOOD" else None
-    train = _sample(train_repo, "attack_results", "baseline", text, label, per_class, token, seed)
-    validation = _sample(train_repo, "attack_results", "finetuned", text, label, per_class, token, seed + 1)
+    train = _sample(
+        train_repo, "attack_results", "baseline", text, label, per_class, token, seed,
+        row_filter=lambda row: int(row["agent_id"]) % 2 == 1,
+    )
+    validation = _sample(
+        train_repo, "attack_results", "baseline", text, label, per_class, token, seed + 1,
+        row_filter=lambda row: int(row["agent_id"]) % 2 == 0,
+    )
     ood = _sample(
         "gabrielchua/system-prompt-leakage", None, "test",
         lambda row: normalize_text(f"System context: {row['system_prompt']}\nAssistant: {row['content']}"),
