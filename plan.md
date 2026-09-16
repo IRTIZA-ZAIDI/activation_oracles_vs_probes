@@ -14,7 +14,7 @@ Can a fine-tuned behavior remain active and independently decodable while an Act
 - A prior probe versus oracle experiment on Gemma-3-27B.
 - A first Colab notebook for the Qwen3-8B baseline.
 - A compact Colab reproduction of the prior Gemma-3-27B Chameleon experiment.
-- A public-data registry with seven configurable categories.
+- A public-data registry with twelve configurable categories, including eight response-oriented behaviors for the main experiment.
 - A Colab pipeline that materializes the data, trains probes and a Chameleon LoRA, and evaluates both probes and the Activation Oracle.
 
 ## What we do not have yet

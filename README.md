@@ -16,7 +16,7 @@ For the larger public-data experiment with configurable categories and OOD evalu
 
 [Open the public-data notebook in Colab](https://colab.research.google.com/github/IRTIZA-ZAIDI/activation_oracles_vs_probes/blob/main/notebooks/03_public_data_chameleon.ipynb)
 
-The notebook exposes all categories in `ALL_CATEGORIES`. Remove entries from `ACTIVE_CATEGORIES` to run a smaller experiment. It downloads, filters, balances, deduplicates, audits, and saves the selected data to Google Drive before model training. Dataset details are in [`data/README.md`](data/README.md).
+The notebook exposes the complete registry in `ALL_CATEGORIES` and defaults to eight response-oriented categories in `ACTIVE_CATEGORIES`. Remove entries from that list to run a smaller experiment. It downloads, filters, balances, deduplicates, audits, and saves the selected data to Google Drive before model training. Dataset details are in [`data/README.md`](data/README.md).
 
 ## Related work
 

@@ -7,7 +7,11 @@ from activation_oracles_vs_probes.public_data import (
 
 
 def test_registry_and_normalization():
-    assert len(AVAILABLE_CATEGORIES) == 7
+    assert len(AVAILABLE_CATEGORIES) == 12
+    assert {
+        "sycophancy", "secret_leakage", "harmful_response", "risky_financial_response",
+        "deceptive_response", "toxic_response", "anger", "spam",
+    } <= set(AVAILABLE_CATEGORIES)
     assert normalize_text(" a\n  b ") == "a b"
 
 
